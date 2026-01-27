@@ -1,0 +1,675 @@
+html{
+    scroll-behavior: smooth !important;
+}
+
+@property  --clr-1{
+    syntax: "<color>";
+    inherits: true;
+    initial-value: yellow;
+}
+
+@property  --clr-2{
+    syntax: "<color>";
+    inherits: true;
+    initial-value: red;
+}
+
+@property  --clr-3{
+    syntax: "<color>";
+    inherits: true;
+    initial-value: green;
+}
+
+@property  --clr-4{
+    syntax: "<color>";
+    inherits: true;
+    initial-value: blue;
+}
+
+@property  --clr-5{
+    syntax: "<color>";
+    inherits: true;
+    initial-value: purple;
+}
+
+@property --glow-deg{
+    syntax: "<angle>";
+    inherits: true;
+    initial-value:-90deg;
+}
+
+
+
+.block-1 {
+    --gradient-glow: var(--clr-1), var(--clr-2), var(--clr-3), var(--clr-4), var(--clr-5), var(--clr-1) ;
+    position: sticky;
+    top: 30px; 
+    height: 90vh;
+   
+    /* background: #2a2a2a; */
+    border: 0.5px solid transparent;
+    /* border-left: 0; */
+    border-radius: 10px;
+    justify-content: center;
+    /* z-index: 500; */
+    padding-top: 20px;
+    margin-block: 0rem;
+    /* padding: 8rem 3rem; */
+    max-width: 60ch;
+    background: 
+        linear-gradient(#2a2a2a, #2a2a2a ) padding-box,
+        conic-gradient(from var(--glow-deg), var(--gradient-glow)) border-box;
+    position: sticky;
+    isolation: isolate;
+
+    animation: glow 5s infinite linear;
+}
+
+@keyframes glow {
+    100%{
+        --glow-deg: 270deg;
+   }
+}
+
+.block-1::before,
+.block-1::after{
+    content: '';
+    position: absolute;
+    border-radius: inherit;
+}
+
+.block-1::before{
+    z-index: -1;
+    background: #2a2a2a;
+    inset: 0.1rem;
+    /* scale: 1.2 1;  */
+    transform-origin: right;
+    filter: blur(-1rem);
+}
+
+.block-1::after{
+    z-index: -2;
+    inset: -0.1rem; 
+    background: conic-gradient(from var(--glow-deg), var(--gradient-glow)); 
+    filter: blur(0.2rem);
+    opacity: 0.2;
+}
+
+*{
+    box-sizing: border-box;
+}
+body {
+     margin: 0; padding: 0; font-family: sans-serif;
+    background-color: #1e1e1e;
+    color: #a0a0a0;
+ }
+
+body, html{
+    margin: 0;
+    padding: 0;
+    background-color: #1e1e1e;
+    line-height: 1.6;
+    /* overflow-y: scroll; */
+}
+
+/* block 4 */
+.block-4{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 30px;
+    background-color: #1e1e1e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#about,
+#skill,
+#education,
+#project {
+    scroll-margin-top: 100px;
+} 
+
+
+/* sidebar */
+.page-grid{
+    display: grid; 
+    grid-template-columns: minmax(250px, 1.2fr) 4fr;
+    /* grid-template-columns: 1.2fr 4fr; */
+    gap: 40px;
+    padding: 30px 40px 30px;
+    align-items: start;
+    max-width: 1300px;
+    margin: auto;
+    
+}
+
+
+/* Profile Section */
+.profile{
+    margin-top: 5px;
+    text-align: center;
+    border-bottom: 2px solid#3a3a3a;
+    margin-left: 20px;
+    margin-right: 20px;
+    
+}
+
+.profile img{
+    height: 130px;
+    width: 130px;
+    border-radius: 50%;
+    border: 1px solid#3a3a3a;
+}
+
+.profile h2{
+    font-size: 1.4rem;
+    font-weight: 300;
+    margin-top: 0px;
+    color: #e0e0e0;
+    font-family: Poppins, sans-serif;
+    margin-bottom: 5px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.profile p{
+    background-color: #1e1e1e;
+    padding: 2px 10px;
+    color: #ffbf00;
+    border: 1px solid#3a3a3a;
+    font-size: 0.8rem;
+    font-family: Poppins, sans-serif;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: -40px;
+    margin-bottom: 20px;
+}
+
+/* Contact Section */
+.contact{
+    margin-top: 20px;
+    line-height: 1.3;
+    padding-left: 00px;
+    border-bottom: 2px solid#3a3a3a;
+    padding-bottom: 20px;
+    margin-left: 25px;
+    margin-right: 20px;
+}
+
+.label{
+    font-size: 1rem;
+    font-weight: 380;    
+    color: #a0a0a0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-bottom: 0px;
+}
+
+.value{
+    line-height: -0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 100; 
+}
+
+/* Social Section */
+.social{
+    margin-top: 20px;
+    /* padding-top: 20px; */
+    text-align: center;
+
+}
+
+.social img{
+    height: 40px;
+    width: 40px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    filter: grayscale(1) invert(0.7);
+    transition: filter 0.3s ease;
+
+}
+
+.social img:hover{
+    filter: grayscale(0) invert(0);
+}
+
+
+/* main column */
+.main-column{
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* box  2 */
+.block-2{
+    position: sticky;
+    top: 30px;
+    height: 50px;
+    background-color: #2a2a2a;
+    border: 1px solid #3a3a3a;
+    border-radius: 5px 5px 7px 7px;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1rem;
+    z-index: 20;
+    width: 100%;
+    border-bottom: 4px solid #1e1e1e;
+}
+
+/* --- Navigation --- */
+#navigation{
+    padding: 10px 10px;
+}
+
+nav{
+    display: flex;
+    margin-right: 40px;
+    gap: 30px;
+}
+
+nav a{
+    text-decoration: none;
+    font-size: 500;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #a0a0a0;
+    transition: color 0.4s ease-in-out, text-shadow 0.4s ease-in-out;
+    position: relative;
+}
+
+
+nav a:hover{
+    color: #ffbf00;
+}
+
+nav a.active {
+    color: #ffbf00; /* Matching your theme color */
+    text-shadow: 0 0 8px rgba(255, 191, 0, 0.3);
+}
+
+/* block 3 */
+.block-3{
+    border: 1px solid #3a3a3a;
+    border-top: none;
+    border-radius: 10px 10px 10px 10px;
+    padding: 00px;
+    background: #2a2a2a;
+    width: 100%;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+
+.scrolling-content{
+    margin-top: 50px;
+    color: #888;   
+}
+
+
+/* About me*/
+#about{
+    margin-bottom: 65px;
+    border-bottom: 2px solid #3a3a3a;
+}
+
+.heading{
+    color: #e0e0e0;
+    font-size: 2erm;
+    margin-top: -30px;
+    margin-bottom: 20px;
+}
+
+.line{
+    width: 120px;
+    height: 2px;
+    background-color: #ffbf00;
+    margin-top: -20px;
+}
+
+.content{
+    text-align: justify;
+    padding-left: 20px;
+    padding-right: 10px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    color: #a0a0a0;
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* --- Skill Section --- */
+#skill{
+    margin-bottom: 65px;
+    border-bottom: 2px solid #3a3a3a;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 30px;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.item{
+    padding-top: 10px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    border-radius: 10px;
+    border: 1px solid #3a3a3a;
+    background-color: #1e1e1e;
+    text-align: center;
+    transition: transform 0.3s ease, boxshadow 0.3s ease;
+}
+
+.item img{
+    height: 40px;
+    width: 40px;
+    filter: invert(75%) sepia(50%) saturate(1000%) hue-rotate(350deg) brightness(110%) contrast(101%);
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.item h3{
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.item:hover{
+    transform: scale(1.1);
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Education Section --- */
+#education{
+    margin-bottom: 60px;
+    border-bottom: 2px solid #3a3a3a;
+}
+
+.edtech{
+    position: relative;
+    margin-bottom: 30px;
+    margin-left: 20px;
+}
+
+.edfirst, .edsecond{
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 35px;
+}
+
+.year{
+    font-size: 1.2rem;
+    color: #fff5bd;
+    margin-top: 20px;
+}
+
+.degree{
+    color: #e0e0e0;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.college{
+    font-style: italic;
+    color: #a0a0a0;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-top: -3px;
+    margin-bottom: 20px;
+}
+
+.goal{
+    height: 15px;
+    width: 15px;
+    border: 3px solid #ffbf00;
+    border-radius: 50%;
+    position: absolute;
+    top: 6px;
+    left: 5px;
+    z-index: 1;
+    background-color: #2a2a2a;
+}
+
+.liner{
+    position: absolute;
+    width: 2px;
+    top: 10px;
+    left: 11px;
+    bottom: 0px;
+    border: 1.5px solid #3a3a3a;
+}
+
+/* --- Projects Section --- */
+#project{
+    margin-bottom: 40px;
+}
+
+.project-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin-top: 30px;
+    margin-left: 25px;
+    margin-right: 25px;
+    
+}
+
+.project1{
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    border: 1px solid #3a3a3a;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project1:hover{
+    transform: translateY(-5px);
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.3);
+}
+.card {
+    padding-left: 20px;
+    padding-right: 15px;
+    padding-bottom: 13px;
+    text-align: justify;
+}
+
+.card h3{
+    margin-top: 2px;
+    color: #e0e0e0;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 0px;
+}
+
+.card p{
+    color: #a0a0a0;
+    line-height: 1.6;
+    text-align: start;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+.card span{
+    background-color: rgba(255, 223, 125, 0.1);
+    color: #ffbf00;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-size: 0.75rem;
+    margin-right: 10px;
+}
+
+
+.project1 img{
+    height: 180px;
+    width: 100%;
+    /* object-fit: cover; */
+}
+
+
+
+/* --- RESPONSIVE DESIGN (REFINED) --- */
+
+@media (max-width: 700px) {
+    .page-grid {
+        grid-template-columns: 1fr; 
+        gap: 20px;
+        padding: 15px;
+    }
+
+    .block-1 {
+        position: relative;
+        top: 0;
+        height: auto;
+        max-width: 100%;
+        padding: 20px;
+        margin-top: 15px;
+        padding-bottom: 10px;
+        
+        /* Flexbox settings */
+        display: flex; 
+        flex-direction: row; 
+        align-items: center; /* Vertically centers the profile and contact */
+        justify-content: flex-start; /* Aligns everything to the left */
+        gap: 60px; /* This creates the physical space between the two sections */
+    }
+
+    .profile {
+        margin: 0;
+        border-bottom: none;
+        flex: 0 1 auto; /* Only takes up as much space as it needs */
+        text-align: center;
+    }
+
+    /* Shrink the name and image for better balance */
+    .profile h2 {
+        font-size: 1rem; /* Smaller name font */
+        margin-top: 10px;
+    }
+
+    .profile img {
+        height: 90px; /* Slightly larger than before but balanced */
+        width: 90px;
+    }
+
+    .profile p {
+        font-size: 0.7rem; /* Shrink the 'Aspirant' tag slightly */
+        margin-top: 5px;
+    }
+
+    /* Adjust Contact Section */
+    .contact {
+        margin: 0;
+        padding: 0;
+        border-bottom: none;
+        flex: 1; 
+        text-align: left;
+        margin-top: -30px;
+    }
+
+    .contact .label {
+        font-size: 0.75rem; /* Smaller labels */
+    }
+
+    .contact .value {
+        font-size: 0.85rem; /* Smaller email/phone text */
+    }
+
+    /* FIX: Skills Grid - switch to 2 columns on mobile so they don't get too small */
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 15px;
+        margin: 10px;
+    }
+
+    /* FIX: Projects - stack them vertically instead of side-by-side */
+    .project-container {
+        grid-template-columns: 1fr; /* Single column */
+        gap: 25px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    /* FIX: Navigation - ensure it doesn't overflow the screen */
+    nav {
+        margin-right: 10px;
+        gap: 15px; /* Reduce gap between About/Skill/Education */
+    }
+
+    nav a {
+        font-size: 0.85rem;
+    }
+
+    .scrolling-content {
+        margin-top: 15px !important; 
+    }
+
+    /* Reduce the margin on the first heading specifically */
+    .heading {
+        margin-top: 0px !important;
+        font-size: 1.5rem;
+    }
+
+    /* Adjust the section buffer for mobile */
+    #about{
+        margin-top: 22px;
+    }
+    #about, #skill, #education, #project {
+        scroll-margin-top: 20px; /* Much smaller buffer for mobile */
+        margin-bottom: 20px;    /* Tighter spacing between sections */
+        padding-top: 0px;
+    }
+
+    #education{
+        margin-top: 22px;
+    }
+
+    /* Adjust headings for mobile */
+    .heading {
+        font-size: 1.5rem;
+        margin-top: 0px;
+        margin-bottom: 20px !important;
+    }
+
+    /* Skills: Switch to 2 columns so they aren't squeezed */
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 15px;
+        margin: 25px 0;
+        
+    }
+
+
+}
+
+
+
+
+/* For very narrow phones (iPhone SE, etc.) */
+@media (max-width: 400px) {
+    .block-1 {
+        gap: 15px; /* Tighten space slightly */
+    }
+    .profile img {
+        height: 70px;
+        width: 70px;
+    }
+}
