@@ -528,7 +528,7 @@ nav a.active {
 
 /* --- RESPONSIVE DESIGN (REFINED) --- */
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
     .page-grid {
         grid-template-columns: 1fr; 
         gap: 20px;
@@ -672,4 +672,5 @@ nav a.active {
         height: 70px;
         width: 70px;
     }
+
 }
